@@ -4,3 +4,14 @@ form {
     border-radius: 15px;
     margin-top: 40%;
 }
+
+.container {
+    
+    margin-top: 40%;
+    
+}
+
+.container .jumbotron a {
+    display: block;
+    text-align: center;
+}
