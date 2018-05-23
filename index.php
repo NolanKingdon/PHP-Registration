@@ -1,7 +1,7 @@
 <?php 
     //Allow/require config
     define('__CONFIG__', true);
-    require_once "config.php";
+    require_once "inc/config.php";
 
 ?>
 
