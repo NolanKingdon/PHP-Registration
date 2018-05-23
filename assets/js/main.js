@@ -18,8 +18,25 @@ $(document).on('submit', 'form.js-register', function(e){
         return false;
     }
     
-    //if we get this far, we're going to hide the error
+    //When we get this far, we're going to hide the error
     error.hide();
+    
+    $.ajax({
+        type: 'POST',
+        url: './ajax/register.php',
+        data: data,
+        dataType: 'json',
+        async: true
+    })
+    .done(function ajaxDone(data){
+        console.log("Success");
+    })
+    .fail(function ajaxFailed(e) {
+        console.log(e);
+    })
+    .always(function ajaxAlways(data){
+        console.log("Always Fires");
+    })
     
     return false;
 })
