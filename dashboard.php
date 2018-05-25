@@ -3,6 +3,7 @@
     define('__CONFIG__', true);
     require_once "inc/config.php";
     
+    ForceLog();
     echo $_SESSION['user_ID'] . " is your user ID";
 
 ?>
