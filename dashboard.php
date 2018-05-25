@@ -20,6 +20,7 @@
             <div class = "jumbotron">
                 <h1>Dashboard.</h1>
                 <p>You are now logged in.</p>
+                <a href = "logout.php">Logout</a>
             </div>
         </section>
         <?php require_once "inc/footer.php" ?>
