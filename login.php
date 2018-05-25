@@ -15,9 +15,9 @@
     </head>
     <body>       
         <div class = "col-md-4 col-md-offset-4">
-            <form action="/action_page.php">
+            <form action="/action_page.php" class = "js-login">
                 <h1>Sample Sign in Form </h1>
-              <div class="form-group js-login">
+              <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" required="required">
               </div>
@@ -25,6 +25,8 @@
                 <label for="pwd">Password:</label>
                 <input type="password" class="form-control" id="pwd" required="required">
               </div>
+            <div class = "alert alert-danger js-error" style="display:none;">Error Message</div>
+                
               <div class="checkbox">
                 <label><input type="checkbox"> Remember me</label>
               </div>

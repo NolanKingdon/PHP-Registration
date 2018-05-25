@@ -7,9 +7,13 @@
     //Actual config below
 
     //Allowing errors
-
     error_reporting(-1);
     ini_set('display_errors', 'On');
+
+    //Sessions always on
+    if(!isset($_SESSION)){
+        session_start();
+    }
 
     //Including php
     include_once "classes/DB.php";

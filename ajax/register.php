@@ -30,7 +30,7 @@
             $user_ID = $con->lastInsertId();
             $_SESSION['user_ID'] = (int) $user_ID;
             
-            $return['redirect'] = '/dashboard.php?message=welcome';
+            $return['redirect'] = 'dashboard.php';
         }
         
         // Ensure user can and is added
