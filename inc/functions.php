@@ -9,5 +9,12 @@
         }
     }
 
+    function ForceDashboard() {
+        if(isset($_SESSION['user_ID'])){
+            header('Location: dashboard.php');
+        } else {
+
+        }
+    }
 
 ?>
