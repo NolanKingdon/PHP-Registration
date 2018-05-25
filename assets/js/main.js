@@ -29,7 +29,14 @@ $(document).on('submit', 'form.js-register', function(e){
         async: true
     })
     .done(function ajaxDone(data){
-        console.log("Success");
+        console.log(data.error);
+        if (data.redirect !== undefined){
+            window.location = data.redirect;
+        } else if (data.error !== undefined){
+            //Error
+            console.log("This email already exists");
+            error.text(data.error).show();
+        }
     })
     .fail(function ajaxFailed(e) {
         console.log(e);
