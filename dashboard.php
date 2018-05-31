@@ -4,8 +4,20 @@
     require_once "inc/config.php";
     
     ForceLog();
-    echo $_SESSION['user_ID'] . " is your user ID";
+    $user_ID = $_SESSION['user_ID'];
 
+    $getUserInfo = $con->prepare("SELECT email, reg_time FROM users WHERE user_ID = :user_ID LIMIT 1");
+    $getUserInfo->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
+    $getUserInfo->execute();
+    if($getUserInfo->rowCount() == 1){
+        //User found
+        $user = $getUserInfo->fetch(PDO::FETCH_ASSOC);
+        
+    } else {
+        //User not found
+        header("Location: /logout.php"); 
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +30,9 @@
     <body>
         <section class = "container">
             <div class = "jumbotron">
-                <h1>Dashboard.</h1>
+                <h1>Dashboard</h1>
                 <p>You are now logged in.</p>
+                <p>Hello <?php echo $user['email']; ?>, you registered at <?php echo $user['reg_time']?></p>
                 <a href = "logout.php">Logout</a>
             </div>
         </section>
