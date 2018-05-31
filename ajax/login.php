@@ -9,12 +9,9 @@
         
         $email = filter::String( $_POST['email'] );
         $password = $_POST['password'];
-        //Ensure user does not exist
-        $findUser = $con->prepare("SELECT user_ID, password FROM users WHERE email = LOWER(:email) LIMIT 1");
-        $findUser->bindParam(':email', $email, PDO::PARAM_STR);
-        $findUser->execute();
+        $userFound = findUser($con, $email);
         
-        if($findUser->rowCount() == 1){
+        if($userFound){
             //User exists
             $user = $findUser->fetch(PDO::FETCH_ASSOC);
             $user['user_ID'] = (int) $user['user_ID'];
