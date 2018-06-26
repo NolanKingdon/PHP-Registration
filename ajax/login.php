@@ -11,7 +11,7 @@
         $password = $_POST['password'];
         $userFound = findUser($con, $email);
         
-        if($userFound){
+        if(!$userFound){
             //User exists
             $user = $findUser->fetch(PDO::FETCH_ASSOC);
             $user['user_ID'] = (int) $user['user_ID'];
